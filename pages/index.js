@@ -118,7 +118,7 @@ export default function Home() {
       </section>
 
       <footer className="bg-blue-900 text-white py-6 text-center">
-        <p>&copy; 2025 ClassyWash. All rights reserved. Sydney, AU.</p>
+        <p>&copy; 2025 ClassyWash. All rights reserved. ClassyWash, AU.</p>
         <p className="text-sm mt-1">Instagram @classywashsydney | Email: yourclassywash@gmail.com</p>
       </footer>
     </div>
