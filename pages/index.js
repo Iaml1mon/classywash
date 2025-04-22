@@ -1,45 +1,68 @@
+// Add this to pages/index.js (replace old content)
+
+import Head from 'next/head';
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans">
-      <header className="bg-blue-900 text-white py-6 px-4 shadow-md">
-        <div className="max-w-5xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">ClassyWash</h1>
-          <p className="text-sm">Stay Clean. Stay Classy.</p>
+    <div className="font-sans bg-gradient-to-tr from-white to-blue-50 min-h-screen text-gray-900">
+      <Head>
+        <title>ClassyWash - Premium Cleaning Services</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <header className="sticky top-0 bg-white shadow z-50">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-blue-900">ClassyWash</h1>
+          <a href="#quote" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Get a Quote</a>
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto p-4">
-        <section className="text-center my-12">
-          <h2 className="text-3xl font-semibold mb-4">Professional Cleaning Services in Sydney</h2>
-          <p className="text-lg text-gray-600">Residential, Office, Post-Construction & More</p>
-        </section>
+      <section className="text-center py-20 px-6 bg-blue-100">
+        <h2 className="text-4xl font-bold text-blue-900 mb-4">Stay Clean. Stay Classy.</h2>
+        <p className="text-lg text-blue-800 max-w-xl mx-auto mb-6">Sydney’s trusted cleaning team for homes, businesses, and construction sites. Reliable, affordable, and always spotless.</p>
+        <a href="#quote" className="inline-block bg-blue-700 text-white py-3 px-6 rounded-lg shadow hover:bg-blue-800">Book Your Clean</a>
+      </section>
 
-        <section className="grid md:grid-cols-2 gap-6 my-12">
+      <section className="py-16 px-6 max-w-6xl mx-auto">
+        <h3 className="text-3xl font-semibold text-center mb-10">Our Services</h3>
+        <div className="grid md:grid-cols-3 gap-6">
           {[
-            'Residential Cleaning',
-            'Move Out Cleaning',
-            'Office & Store Cleaning',
-            'Post-Construction Cleaning',
-            'Restaurant Cleaning',
-            'Pressure Washing'
-          ].map((service) => (
-            <div key={service} className="p-6 border rounded shadow-sm hover:shadow-md transition">
-              <h3 className="text-xl font-bold mb-2">{service}</h3>
-              <p className="text-gray-600">We provide professional and reliable {service.toLowerCase()} to keep your space spotless and classy.</p>
+            ['🏠', 'House Cleaning'],
+            ['🏢', 'Office & Store Cleaning'],
+            ['🧹', 'Move Out / End of Lease'],
+            ['🛠️', 'Post-Construction'],
+            ['🍽️', 'Restaurant Cleaning'],
+            ['🚿', 'Pressure Washing']
+          ].map(([icon, label]) => (
+            <div key={label} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+              <div className="text-4xl mb-2">{icon}</div>
+              <h4 className="text-xl font-bold mb-2">{label}</h4>
+              <p className="text-gray-600">Professional {label.toLowerCase()} with a touch of class.</p>
             </div>
           ))}
-        </section>
+        </div>
+      </section>
 
-        <section className="text-center my-12">
-          <h2 className="text-2xl font-bold mb-4">Book a Free Quote</h2>
-          <p className="text-gray-600 mb-2">Visit <a href="https://classywash.com" className="text-blue-600 underline">classywash.com</a> or email us at <strong>yourclassywash@gmail.com</strong></p>
-          <p className="text-gray-600">Call or WhatsApp: <strong>0492 839 791</strong></p>
-        </section>
-      </main>
+      <section id="quote" className="bg-white py-16 px-6 max-w-3xl mx-auto">
+        <h3 className="text-2xl font-bold mb-6 text-center">Request a Free Quote</h3>
+        <form className="grid gap-4">
+          <input type="text" placeholder="Name" className="p-3 border rounded" required />
+          <input type="tel" placeholder="Phone" className="p-3 border rounded" required />
+          <input type="email" placeholder="Email" className="p-3 border rounded" required />
+          <textarea placeholder="Your Message" rows="4" className="p-3 border rounded"></textarea>
+          <button className="bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-800">Submit</button>
+        </form>
+      </section>
 
-      <footer className="bg-blue-900 text-white text-center py-4 mt-12">
-        <p>&copy; 2025 ClassyWash. All rights reserved.</p>
+      <footer className="bg-blue-900 text-white text-center py-6 mt-12">
+        <p>&copy; 2025 ClassyWash. Made in Sydney.</p>
+        <p className="text-sm">Follow us: @classywashsydney</p>
       </footer>
     </div>
   );
 }
+
+// Run these after adding to project:
+// git add .
+// git commit -m "Upgraded UI with hero, services, and booking form"
+// git push
