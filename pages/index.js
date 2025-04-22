@@ -1,76 +1,51 @@
-import Head from 'next/head';
+// ...existing code remains above
 
-export default function Home() {
-  return (
-    <div className="font-sans bg-white text-gray-900">
-      <Head>
-        <title>ClassyWash - Premium Cleaning Services</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <header className="bg-blue-900 text-white py-5 shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <h1 className="text-3xl font-bold">ClassyWash</h1>
-          <nav className="space-x-6 hidden md:flex">
-            <a href="#services" className="hover:underline">Services</a>
-            <a href="#about" className="hover:underline">About</a>
-            <a href="#quote" className="hover:underline">Quote</a>
-          </nav>
-          <a href="#quote" className="bg-white text-blue-900 px-4 py-2 rounded font-medium hover:bg-gray-100">Get a Quote</a>
-        </div>
-      </header>
-
-      <section className="relative bg-[url('/cleaning-bg.jpg')] bg-cover bg-center text-white py-32 px-6">
-        <div className="bg-black/50 backdrop-blur-sm py-20 px-6 text-center max-w-3xl mx-auto rounded">
-          <h2 className="text-5xl font-bold mb-4 leading-tight">Bringing Shine to Your Home & Office</h2>
-          <p className="text-lg mb-6">Expert cleaning, pressure washing, and post-construction cleanup all across Sydney.</p>
-          <a href="#quote" className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded shadow">Book Now</a>
+      <section id="testimonials" className="bg-white py-24 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <h3 className="text-3xl font-bold mb-10">What Our Clients Say</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              ['"ClassyWash made our office sparkle. Highly recommend!"', '– Alex, Sydney CBD'],
+              ['"End-of-lease cleaning was spotless. Got my full bond back!"', '– Priya, Parramatta'],
+              ['"They transformed our restaurant kitchen. So clean!"', '– Marco, Darlinghurst']
+            ].map(([quote, name], index) => (
+              <div key={index} className="bg-blue-50 p-6 rounded shadow text-left">
+                <p className="text-lg italic text-gray-700 mb-4">{quote}</p>
+                <p className="font-semibold text-blue-900">{name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="services" className="max-w-7xl mx-auto px-6 py-24">
-        <h3 className="text-3xl font-bold text-center mb-12">Our Services</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            ['House Cleaning', 'We make your living space sparkle with professional cleaning.'],
-            ['Office Cleaning', 'Create a productive and hygienic workplace environment.'],
-            ['Move Out Cleaning', 'End-of-lease cleaning to help you get your bond back.'],
-            ['Post-Construction', 'Remove all dust and debris after renovation or build.'],
-            ['Restaurant Cleaning', 'Keep your kitchen and dining spotless and compliant.'],
-            ['Pressure Washing', 'Driveways, patios, and exteriors renewed and fresh.']
-          ].map(([title, desc]) => (
-            <div key={title} className="bg-white p-6 shadow-md rounded hover:shadow-lg transition-all border-t-4 border-blue-600">
-              <h4 className="text-xl font-bold mb-2">{title}</h4>
-              <p className="text-gray-600">{desc}</p>
-            </div>
-          ))}
+      <section id="pricing" className="bg-gray-100 py-24 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h3 className="text-3xl font-bold mb-10">Affordable Pricing</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[{
+              title: 'Basic Clean',
+              price: '$89',
+              features: ['1 Bedroom', '1 Bathroom', 'Light Dusting & Mopping']
+            }, {
+              title: 'Standard Clean',
+              price: '$149',
+              features: ['2-3 Bedrooms', '2 Bathrooms', 'Kitchen & Living Area']
+            }, {
+              title: 'Deep Clean',
+              price: '$249',
+              features: ['4+ Bedrooms', 'Full House Detailing', 'Walls, Windows, & Floors']
+            }].map((pkg, i) => (
+              <div key={i} className="bg-white p-8 rounded shadow hover:shadow-lg">
+                <h4 className="text-xl font-bold mb-2 text-blue-800">{pkg.title}</h4>
+                <p className="text-4xl font-bold text-blue-900 mb-4">{pkg.price}</p>
+                <ul className="text-gray-600 space-y-2 mb-6">
+                  {pkg.features.map((f, idx) => <li key={idx}>✓ {f}</li>)}
+                </ul>
+                <a href="#quote" className="inline-block bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Book Now</a>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="about" className="bg-gray-100 py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-6">About ClassyWash</h3>
-          <p className="text-gray-700 text-lg">At ClassyWash, we believe cleanliness is the foundation of comfort and professionalism. With years of experience in residential and commercial cleaning, our dedicated team ensures every surface sparkles and every space feels fresh. We’re trusted by Sydney families, business owners, and builders for quality, reliability, and care.</p>
-        </div>
-      </section>
-
-      <section id="quote" className="bg-blue-50 py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-8">Request a Free Quote</h3>
-          <form className="grid gap-4 bg-white p-6 rounded shadow">
-            <input type="text" placeholder="Full Name" className="p-3 border rounded" required />
-            <input type="tel" placeholder="Phone Number" className="p-3 border rounded" required />
-            <input type="email" placeholder="Email Address" className="p-3 border rounded" required />
-            <textarea placeholder="Describe your cleaning needs..." rows="4" className="p-3 border rounded"></textarea>
-            <button type="submit" className="bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-800">Send Request</button>
-          </form>
-        </div>
-      </section>
-
-      <footer className="bg-blue-900 text-white py-6 text-center">
-        <p>&copy; 2025 ClassyWash. All rights reserved. Sydney, AU.</p>
-        <p className="text-sm mt-1">Instagram @classywashsydney | Email: yourclassywash@gmail.com</p>
-      </footer>
-    </div>
-  );
-}
+// ...footer and closing tags remain
