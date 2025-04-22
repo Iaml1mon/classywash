@@ -47,6 +47,13 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="about" className="bg-gray-100 py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl font-bold mb-6">About ClassyWash</h3>
+          <p className="text-gray-700 text-lg">At ClassyWash, we believe cleanliness is the foundation of comfort and professionalism. With years of experience in residential and commercial cleaning, our dedicated team ensures every surface sparkles and every space feels fresh. We’re trusted by Sydney families, business owners, and builders for quality, reliability, and care.</p>
+        </div>
+      </section>
+
       <section id="quote" className="bg-blue-50 py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h3 className="text-3xl font-bold text-center mb-8">Request a Free Quote</h3>
