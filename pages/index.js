@@ -24,7 +24,7 @@
           <div className="grid md:grid-cols-3 gap-6">
             {[{
               title: 'Basic Clean',
-              price: '$89',
+              price: '$9',
               features: ['1 Bedroom', '1 Bathroom', 'Light Dusting & Mopping']
             }, {
               title: 'Standard Clean',
